@@ -846,6 +846,13 @@ class Crop(Operation):
         :return: The transformed image(s) as a list of object(s) of type
          PIL.Image.
         """
+        
+        if self.centre:
+            pass
+        else
+            w, h = images[0].size
+            left_shift = random.randint(0, int((w - self.width)))
+            down_shift = random.randint(0, int((h - self.height)))
 
         def do(image):
 
@@ -858,8 +865,6 @@ class Crop(Operation):
             if self.centre:
                 return image.crop(((w/2)-(self.width/2), (h/2)-(self.height/2), (w/2)+(self.width/2), (h/2)+(self.height/2)))
             else:
-                left_shift = random.randint(0, int((w - self.width)))
-                down_shift = random.randint(0, int((h - self.height)))
                 return image.crop((left_shift, down_shift, self.width + left_shift, self.height + down_shift))
 
         augmented_images = []
