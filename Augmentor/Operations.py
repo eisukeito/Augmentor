@@ -849,7 +849,7 @@ class Crop(Operation):
         
         if self.centre:
             pass
-        else
+        else:
             w, h = images[0].size
             left_shift = random.randint(0, int((w - self.width)))
             down_shift = random.randint(0, int((h - self.height)))
